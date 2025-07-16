@@ -1,0 +1,35 @@
+<h2>User List</h2>
+
+<input [(ngModel)]="filterText" placeholder="Filter by name" />
+
+<div *ngIf="filterUsers().length > 0; else noUsers">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filterUsers()">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name | uppercase }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button>Edit</button>
+          <button>Del</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noUsers>
+  <p>No brands match the filter.</p>
+</ng-template>

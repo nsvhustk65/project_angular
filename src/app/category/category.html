@@ -1,0 +1,29 @@
+<h2>Category List</h2>
+<input [(ngModel)]="filterText" placeholder="Filter by name" />
+<div *ngIf="filterCategories().length > 0; else noCategory">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of filterCategories()">
+        <td>{{ category.id }}</td>
+        <!-- LAPTOP -->
+        <td>{{ category.name | uppercase }}</td>
+        <td>{{ category.description }}</td>
+        <td>
+          <button>Edit</button>
+          <button>Del</button>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noCategory>
+  <p>No products match the filter.</p>
+</ng-template>

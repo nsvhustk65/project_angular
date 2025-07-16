@@ -1,0 +1,29 @@
+<h2>Brand List</h2>
+
+<input [(ngModel)]="filterText" placeholder="Filter by name" />
+
+<div *ngIf="filterBrands().length > 0; else noBrands">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let brand of filterBrands()">
+        <td>{{ brand.id }}</td>
+        <td>{{ brand.name | uppercase }}</td>
+        <td>
+          <button>Edit</button>
+          <button>Del</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noBrands>
+  <p>No brands match the filter.</p>
+</ng-template>
