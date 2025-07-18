@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ProductListComponent } from './product-list/product-list';
 import { BrandComponent } from './brand/brand';
 import { CategoryComponent } from './category/category';
 import { UserCoponent } from './user/user';
+import { Sidebar } from './sidebar/sidebar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,ProductListComponent,BrandComponent,CategoryComponent,UserCoponent],
+  imports: [RouterOutlet,Sidebar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,11 +1,6 @@
-
-<main class="main">
-
-</main>
-<!-- <app-product-list></app-product-list>
-<app-brand></app-brand>
-<app-category></app-category>
-<app-user></app-user> -->
-
-
-<router-outlet />
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="flex-grow-1 p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>
