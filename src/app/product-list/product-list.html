@@ -1,10 +1,16 @@
 <h2>Product List</h2>
-<input [(ngModel)]="filterText" placeholder="Filter by name" />
+<div class="product-list-toolbar">
+  <input [(ngModel)]="filterText" placeholder="Filter by name" class="filter-input" />
+  <button class="btn-add-product" routerLink="/product/create">
+    <i class="fa fa-plus"></i> Thêm mới
+  </button>
+</div>
 <div *ngIf="filterProducts().length > 0; else noProducts">
   <table>
     <thead>
       <tr>
         <th>ID</th>
+        <th>Ảnh</th>
         <th>Name</th>
         <th>Price</th>
         <th>Status</th>
@@ -13,16 +19,23 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of filterProducts()">
-        <td>{{ product.id }}</td>
-        <!-- LAPTOP -->
+        <td>
+          <a [routerLink]="['/product', product.id, 'detail']">
+            {{ product.id }}
+          </a>
+        </td>
+        <td>
+          <img [src]="product.imageUrl" alt="Ảnh sản phẩm" style="width:60px; height:60px; object-fit:cover; border-radius:8px;">
+        </td>
         <td>{{ product.name | uppercase }}</td>
         <td>{{ product.price | currency : "VND" }}</td>
         <td [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
           {{ product.inStock ? "In Stock" : "Out of Stock" }}
         </td>
         <td>
-          <button>Edit</button>
+          <button [routerLink]="['/product', product.id, 'edit']">Edit</button>
           <button>Del</button>
+          <button [routerLink]="['/product', product.id, 'detail']">Xem chi tiết</button>
         </td>
       </tr>
     </tbody>

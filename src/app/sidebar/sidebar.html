@@ -1,25 +1,10 @@
-<div class="d-flex flex-column p-3 text-white bg-dark vh-100" style="width: 250px;">
-  <h4 class="text-center mb-4">Quản trị</h4>
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a class="nav-link text-white" routerLink="/products" routerLinkActive="active">
-        🛒 Sản phẩm
-      </a>
-    </li>
-    <li>
-      <a class="nav-link text-white" routerLink="/categories" routerLinkActive="active">
-        📂 Danh mục
-      </a>
-    </li>
-    <li>
-      <a class="nav-link text-white" routerLink="/users" routerLinkActive="active">
-        👤 Người dùng
-      </a>
-    </li>
-    <li>
-      <a class="nav-link text-white" routerLink="/brands" routerLinkActive="active">
-        🏷️ Thương hiệu
-      </a>
-    </li>
-  </ul>
-</div>
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <a routerLink="/dashboard" routerLinkActive="active"><i class="fa fa-home"></i> Dashboard</a>
+    <a routerLink="/products" routerLinkActive="active"><i class="fa fa-box"></i> Sản phẩm</a>
+    <a routerLink="/categories" routerLinkActive="active"><i class="fa fa-folder"></i> Danh mục</a>
+    <a routerLink="/users" routerLinkActive="active"><i class="fa fa-user"></i> Người dùng</a>
+    <a routerLink="/brands" routerLinkActive="active"><i class="fa fa-tags"></i> Thương hiệu</a>
+    
+  </nav>
+</aside>

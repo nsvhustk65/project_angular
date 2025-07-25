@@ -1,0 +1,56 @@
+<form (ngSubmit)="handleSubmit()" #userForm="ngForm" class="user-form">
+  <h2>Sửa người dùng</h2>
+  <div class="mb-3">
+    <label for="name" class="form-label">Tên người dùng</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      required
+      minlength="2"
+      [(ngModel)]="user.name"
+      #name="ngModel"
+      [ngClass]="{ 'is-invalid': name.invalid && name.touched }"
+    />
+    <div *ngIf="name.invalid && name.touched" class="invalid-feedback">
+      <div *ngIf="name.errors?.['required']">Tên người dùng bắt buộc nhập.</div>
+      <div *ngIf="name.errors?.['minlength']">Tên phải từ 2 ký tự trở lên.</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      required
+      email
+      [(ngModel)]="user.email"
+      #email="ngModel"
+      [ngClass]="{ 'is-invalid': email.invalid && email.touched }"
+    />
+    <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
+      <div *ngIf="email.errors?.['required']">Email bắt buộc nhập.</div>
+      <div *ngIf="email.errors?.['email']">Email không hợp lệ.</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="role" class="form-label">Vai trò</label>
+    <select
+      id="role"
+      name="role"
+      class="form-control"
+      required
+      [(ngModel)]="user.role"
+      #role="ngModel"
+    >
+      <option value="" disabled selected>Chọn vai trò</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Lưu</button>
+  <button type="button" class="btn btn-secondary" routerLink="/users">Hủy</button>
+</form>

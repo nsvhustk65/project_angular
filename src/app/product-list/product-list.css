@@ -27,23 +27,38 @@ tbody tr:hover {
 }
 
 /* Nút bấm */
-button {
-  padding: 6px 12px;
-  margin-right: 5px;
+table button {
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px 16px;
+  margin-right: 6px;
+  font-size: 15px;
   font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
 }
 
-button:first-child {
-  background-color: #2196F3;
-  color: white;
+button {
+  outline: none;
 }
 
-button:last-child {
-  background-color: #f44336;
-  color: white;
+button:nth-child(1) { /* Edit */
+  background: #fdcb6e;
+  color: #2d3436;
+}
+
+button:nth-child(2) { /* Delete */
+  background: #d63031;
+  color: #fff;
+}
+
+button:nth-child(3) { /* Xem chi tiết */
+  background: #0984e3;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.85;
 }
 
 /* Input filter */
@@ -63,4 +78,40 @@ p {
   color: #888;
   font-style: italic;
   margin-top: 16px;
+}
+
+.product-list-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.filter-input {
+  flex: 1;
+  max-width: 300px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #dfe6e9;
+  font-size: 15px;
+}
+
+.btn-add-product {
+  background: #00b894;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s;
+}
+
+.btn-add-product:hover {
+  background: #26de81;
 }

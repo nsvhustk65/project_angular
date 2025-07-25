@@ -1,6 +1,11 @@
 <h2>User List</h2>
 
-<input [(ngModel)]="filterText" placeholder="Filter by name" />
+<div class="user-toolbar">
+  <input [(ngModel)]="filterText" placeholder="Filter by name" class="filter-input" />
+  <button class="btn-add-user" routerLink="/users/create">
+    <i class="fa fa-plus"></i> Thêm mới
+  </button>
+</div>
 
 <div *ngIf="filterUsers().length > 0; else noUsers">
   <table>
@@ -22,7 +27,7 @@
         <td>{{ user.address }}</td>
         <td>{{ user.email }}</td>
         <td>
-          <button>Edit</button>
+          <button [routerLink]="['/users', user.id, 'edit']">Edit</button>
           <button>Del</button>
         </td>
       </tr>
@@ -31,5 +36,5 @@
 </div>
 
 <ng-template #noUsers>
-  <p>No brands match the filter.</p>
+  <p>No users match the filter.</p>
 </ng-template>

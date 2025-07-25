@@ -1,0 +1,23 @@
+<form (ngSubmit)="handleSubmit()" #categoryForm="ngForm" class="category-form">
+  <h2>Sửa danh mục</h2>
+  <div class="mb-3">
+    <label for="name" class="form-label">Tên danh mục</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      required
+      minlength="2"
+      [(ngModel)]="category.name"
+      #name="ngModel"
+      [ngClass]="{ 'is-invalid': name.invalid && name.touched }"
+    />
+    <div *ngIf="name.invalid && name.touched" class="invalid-feedback">
+      <div *ngIf="name.errors?.['required']">Tên danh mục bắt buộc nhập.</div>
+      <div *ngIf="name.errors?.['minlength']">Tên danh mục phải từ 2 ký tự trở lên.</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="categoryForm.invalid">Lưu</button>
+  <button type="button" class="btn btn-secondary" routerLink="/categories">Hủy</button>
+</form>

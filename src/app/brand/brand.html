@@ -1,6 +1,11 @@
 <h2>Brand List</h2>
 
-<input [(ngModel)]="filterText" placeholder="Filter by name" />
+<div class="brand-toolbar">
+  <input [(ngModel)]="filterText" placeholder="Filter by name" />
+  <button class="btn-add-brand" routerLink="/brands/create">
+    <i class="fa fa-plus"></i> Thêm mới
+  </button>
+</div>
 
 <div *ngIf="filterBrands().length > 0; else noBrands">
   <table>
@@ -16,7 +21,7 @@
         <td>{{ brand.id }}</td>
         <td>{{ brand.name | uppercase }}</td>
         <td>
-          <button>Edit</button>
+          <button [routerLink]="['/brands', brand.id, 'edit']">Edit</button>
           <button>Del</button>
         </td>
       </tr>

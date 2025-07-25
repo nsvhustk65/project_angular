@@ -1,5 +1,16 @@
 <h2>Category List</h2>
-<input [(ngModel)]="filterText" placeholder="Filter by name" />
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+  <input [(ngModel)]="filterText" placeholder="Filter by name" style="flex: 1; padding: 8px;" />
+
+<button
+  [routerLink]="['/categories/create']"
+  style="margin-left: 10px; padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;"
+>
+  Thêm mới
+</button>
+</div>
+
 <div *ngIf="filterCategories().length > 0; else noCategory">
   <table>
     <thead>
@@ -8,22 +19,22 @@
         <th>Name</th>
         <th>Description</th>
         <th>Action</th>
-    
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let category of filterCategories()">
         <td>{{ category.id }}</td>
-        <!-- LAPTOP -->
         <td>{{ category.name | uppercase }}</td>
         <td>{{ category.description }}</td>
         <td>
-          <button>Edit</button>
+          <button [routerLink]="['/categories', category.id, 'edit']">Edit</button>
           <button>Del</button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
+
 <ng-template #noCategory>
   <p>No products match the filter.</p>
 </ng-template>

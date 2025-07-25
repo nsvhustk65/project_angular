@@ -1,0 +1,26 @@
+<div class="edit-product-card">
+  <h2>Sửa sản phẩm</h2>
+  <form #editForm="ngForm" (ngSubmit)="saveProduct()">
+    <label>
+      Tên sản phẩm:
+      <input type="text" [(ngModel)]="product.name" name="name" required />
+    </label>
+    <label>
+      Giá:
+      <input type="number" [(ngModel)]="product.price" name="price" required />
+    </label>
+    <label>
+      Ảnh:
+      <input type="text" [(ngModel)]="product.imageUrl" name="imageUrl" required />
+    </label>
+    <label>
+      Trạng thái:
+      <select [(ngModel)]="product.inStock" name="inStock">
+        <option [ngValue]="true">Còn hàng</option>
+        <option [ngValue]="false">Hết hàng</option>
+      </select>
+    </label>
+    <button type="submit" class="save-btn">Lưu</button>
+    <button type="button" class="cancel-btn" routerLink="/products">Hủy</button>
+  </form>
+</div>

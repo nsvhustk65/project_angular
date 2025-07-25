@@ -1,0 +1,61 @@
+.brand-form {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 32px;
+}
+
+.brand-form h2 {
+  margin-top: 0;
+  color: #0984e3;
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #dfe6e9;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.is-invalid {
+  border-color: #d63031;
+}
+
+.invalid-feedback {
+  color: #d63031;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-success {
+  background: #00b894;
+  color: #fff;
+}
+
+.btn-success:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #636e72;
+  color: #fff;
+}

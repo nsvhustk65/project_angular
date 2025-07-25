@@ -1,0 +1,23 @@
+<form (ngSubmit)="handleSubmit()" #brandForm="ngForm" class="brand-form">
+  <h2>Thêm thương hiệu</h2>
+  <div class="mb-3">
+    <label for="name" class="form-label">Tên thương hiệu</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      required
+      minlength="2"
+      [(ngModel)]="brand.name"
+      #name="ngModel"
+      [ngClass]="{ 'is-invalid': name.invalid && name.touched }"
+    />
+    <div *ngIf="name.invalid && name.touched" class="invalid-feedback">
+      <div *ngIf="name.errors?.['required']">Tên thương hiệu bắt buộc nhập.</div>
+      <div *ngIf="name.errors?.['minlength']">Tên thương hiệu phải từ 2 ký tự trở lên.</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="brandForm.invalid">Thêm mới</button>
+  <button type="button" class="btn btn-secondary" routerLink="/brands">Hủy</button>
+</form>

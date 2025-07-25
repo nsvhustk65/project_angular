@@ -1,0 +1,19 @@
+<div class="product-detail-card">
+  <div class="product-image-wrap">
+    <img [src]="product.image" [alt]="product.name" class="product-image" />
+  </div>
+  <div class="product-info">
+    <h2>{{ product.name }}</h2>
+    <p class="product-id">Mã sản phẩm: <strong>{{ productId }}</strong></p>
+    <p class="product-price">Giá: <span>{{ product.price | currency : "VND" }}</span></p>
+    <p>
+      Trạng thái:
+      <span [ngClass]="product.inStock ? 'in-stock' : 'out-of-stock'">
+        {{ product.inStock ? 'Còn hàng' : 'Hết hàng' }}
+      </span>
+    </p>
+    <button class="back-btn" routerLink="/products">
+      <i class="fa fa-arrow-left"></i> Quay lại danh sách
+    </button>
+  </div>
+</div>
